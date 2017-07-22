@@ -8,7 +8,8 @@ The basic setup is you have a raspberry pi that runs kismet to log traffic.
 We run kismet for 20 seconds at a time, have it log to disk, then restart.
 This gives us a nice way to just look at all the previous files. We're not
 worried about catching everything so losing time in startup and shutdown is
-OK.
+OK. We also keep running kismet in this manner because sometimes I was
+seeing the process wedge. Rather than debug it, I took the easy way out.
 
 We then use tshark to parse the kismet pcap files and output something we
 can hand to logstash. Filebeat is a great way to get data from the pi to
